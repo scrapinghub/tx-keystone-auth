@@ -1,0 +1,2 @@
+twisted
+-e git://github.com/openstack/keystonemiddleware#egg=keystonemiddleware
