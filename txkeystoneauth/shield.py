@@ -33,7 +33,7 @@ class TokenChecker(object):
                 raise InvalidUserToken(
                     "Credentials must follow the TOKEN:<uuid_token> pattern")
             token_info = self.auth_protocol._validate_user_token(user_token, {})
-            roles = [role['name'] for role in token_info['token']['roles']]
+            roles = [role['name'] for role in token_info['token'].get('roles', [])]
             for role in self.enforce_roles:
                 if not role in roles:
                     raise InvalidUserToken
