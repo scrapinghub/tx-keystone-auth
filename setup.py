@@ -14,7 +14,7 @@ setup(
     dependency_links=[
         'git://github.com/openstack/keystonemiddleware.git#egg=keystonemiddleware',
     ],
-    install_requires=['twisted', 'keystonemiddleware']
+    install_requires=['twisted', 'keystonemiddleware'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'License :: OSI Approved :: BSD License',
