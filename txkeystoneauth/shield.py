@@ -10,7 +10,11 @@ from twisted.web import server
 from twisted.web.guard import HTTPAuthSessionWrapper
 from twisted.web.guard import BasicCredentialFactory
 
-from keystonemiddleware.auth_token import AuthProtocol, InvalidUserToken
+from keystonemiddleware.auth_token import AuthProtocol
+try:
+    from keystonemiddleware.auth_token import InvalidUserToken
+except ImportError:
+    from keystonemiddleware.auth_token import InvalidToken as InvalidUserToken
 
 
 class TokenChecker(object):
@@ -23,7 +27,7 @@ class TokenChecker(object):
         self.auth_protocol = auth_protocol
         self.enforce_roles = enforce_roles
         self.delay_auth_decision = delay_auth_decision
-      
+
     def requestAvatarId(self, credentials):
         token_info = None
         try:
